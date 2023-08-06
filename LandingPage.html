@@ -12,6 +12,14 @@
     <link rel="stylesheet" href="Footer.css" />
   </head>
   <style>
+    .newsTitle {
+      font-size: 20px;
+      color: white;
+      text-align: left;
+      /* overflow: hidden; */
+      text-overflow: ellipsis;
+      padding: 5px;
+    }
     body {
       background: linear-gradient(180deg, #000 10%, #a50000 100%);
       height: 100%;
@@ -20,7 +28,7 @@
     .carousel-img {
       /* object-fit: cover;  */
       width: 100%;
-      height: 75vh;
+      height: 84vh;
     }
 
     .roundButton {
@@ -124,10 +132,7 @@
         function startCarousel() {
           setInterval(() => {
             const containerRect = carouselContainer.getBoundingClientRect();
-            if (
-              containerRect.top >= 0
-            )
-             {
+            if (containerRect.top >= 0) {
               nextSlide();
             }
           }, 8000);
@@ -141,19 +146,340 @@
     </div>
     <!-- The Latest News thing comes here -->
     <div>
-      <p class="text-white text-center">Latest News</p>
+      <!-- <p class="text-white text-center">Latest News</p> -->
+      <section>
+        <div
+          class="head"
+          style="color: #ffff; font-family: 'Open Sans', sans-serif"
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-left: 10%;
+              margin-top: 2%;
+            "
+          >
+            <h4 style="font-size: 30px">Latest News</h4>
+            <a
+              class="old"
+              onclick="handleNewsMore()"
+              style="
+                cursor: pointer;
+                font-size: medium;
+                color: #ffff;
+                text-decoration: none;
+                margin-right: 12%;
+                margin-top: 10px;
+              "
+              >View Older Posts <span>&#8594;</span>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="news"
+          style="
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 10%;
+            margin-right: 10%;
+          "
+        >
+          <div
+            onmouseover="this.style.backgroundColor='#650000';"
+            onmouseout="this.style.backgroundColor='transparent';"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              margin-right: 2%;
+            "
+          >
+            <div
+              class="t1"
+              style="
+                display: inline-block;
+                box-sizing: border-box;
+                transition: background-color 0.3s ease-in-out;
+                width: 100%;
+                height: 100%;
+              "
+            >
+              <img
+                class="i1"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5VPUQ4iyoh-Jr_8pVMK4C4YqoOT5vijJxvg&usqp=CAU"
+                alt="Image"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 25px;
+                  transition: transform 0.3s ease-in-out;
+                "
+              />
+            </div>
+            <div class="newsTitle">
+              <p>
+                Fred Vasseur has explained why Ferrari didn't withdraw Carlos
+                Sainz from the Belgian Grand Prix, despite extensive damage.
+              </p>
+            </div>
+          </div>
+
+          <div
+            onmouseover="this.style.backgroundColor='#650000';"
+            onmouseout="this.style.backgroundColor='transparent';"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              margin-right: 2%;
+            "
+          >
+            <div
+              class="t1"
+              style="
+                display: inline-block;
+                box-sizing: border-box;
+                transition: background-color 0.3s ease-in-out;
+                width: 100%;
+                height: 100%;
+              "
+            >
+              <img
+                class="i1"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdntRHGlv-lmcGDQGhEPwuWOCC78PHqBKP5g"
+                alt="Image"
+                style="width: 100%; height: 100%; border-radius: 25px"
+              />
+            </div>
+            <div class="newsTitle">
+              <p>
+                "It's been a positive weekend" - Leclerc pleased with podium in
+                Belgium but says Ferrari still have 'a lot of work to do'
+              </p>
+            </div>
+          </div>
+
+          <div
+            onmouseover="this.style.backgroundColor='#650000';"
+            onmouseout="this.style.backgroundColor='transparent';"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+            "
+          >
+            <div
+              class="t1"
+              style="
+                display: inline-block;
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+              "
+            >
+              <img
+                class="i1"
+                src="data:image/jpeg;base64,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"
+                alt="Image"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 25px;
+                  transition: transform 0.3s ease-in-out;
+                "
+              />
+            </div>
+            <div class="newsTitle">
+              <p>
+                George Russell admitted the pace of Charles Leclerc in his
+                Ferrari caught him off-guard during the Belgian Grand Prix this
+                weekend.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     <!-- The Upcoming Races thing comes here -->
-    <div>
-      <p class="text-white text-center">Upcoming Races</p>
+
+    <div style="margin-top: 10%">
+      <!-- <p class="text-white text-center">Upcoming Races</p> -->
+      <section>
+        <div
+          class="head"
+          style="color: #ffff; font-family: 'Open Sans', sans-serif"
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              margin-left: 10%;
+              margin-top: 2%;
+            "
+          >
+            <h4 style="font-size: 30px">Upcoming Races</h4>
+            <a
+              class="old"
+              href="https://www.ferrari.com/en-EN/formula1/race-calendar"
+              target="_blank"
+              style="
+                cursor: pointer;
+                font-size: medium;
+                color: #ffff;
+                text-decoration: none;
+                margin-right: 12%;
+                margin-top: 10px;
+              "
+            >
+              View More
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="news"
+          style="
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 10%;
+            margin-right: 10%;
+          "
+        >
+          <div
+            onmouseover="this.style.backgroundColor='#650000';"
+            onmouseout="this.style.backgroundColor='transparent';"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              margin-right: 2%;
+              min-width: 30%;
+            "
+          >
+            <div
+              class="t1"
+              style="
+                display: inline-block;
+                box-sizing: border-box;
+                transition: background-color 0.3s ease-in-out;
+                width: 100%;
+                height: 100%;
+              "
+            >
+              <img
+                class="i1"
+                src="https://cdn.ferrari.com/cms/network/media/img/resize/63bed738ce3933008699eb62-bahrain_2023_mobile?width=768&height=0"
+                alt="Image"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 25px;
+                  transition: transform 0.3s ease-in-out;
+                "
+              />
+            </div>
+            <div class="newsTitle">
+              <p style="font-family: monospace">03 - 05 March</p>
+              <p>Bahrain Grand Prix Sakhir</p>
+            </div>
+          </div>
+
+          <div
+            onmouseover="this.style.backgroundColor='#650000';"
+            onmouseout="this.style.backgroundColor='transparent';"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              margin-right: 2%;
+              min-width: 30%;
+            "
+          >
+            <div
+              class="t1"
+              style="
+                display: inline-block;
+                box-sizing: border-box;
+                transition: background-color 0.3s ease-in-out;
+                width: 100%;
+                height: 100%;
+              "
+            >
+              <img
+                class="i1"
+                src="https://cdn.ferrari.com/cms/network/media/img/resize/6156dea269510f0d54396998-saudiarabia_race_calendar_flag?width=550&height=330"
+                alt="Image"
+                style="width: 100%; height: 100%; border-radius: 25px"
+              />
+            </div>
+            <div class="newsTitle">
+              <p style="font-family: monospace">17 - 19 March</p>
+              <p>Saudi Arabian Grand Prix Jeddah</p>
+            </div>
+          </div>
+
+          <div
+            onmouseover="this.style.backgroundColor='#650000';"
+            onmouseout="this.style.backgroundColor='transparent';"
+            style="
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              min-width: 30%;
+            "
+          >
+            <div
+              class="t1"
+              style="
+                display: inline-block;
+                box-sizing: border-box;
+                width: 100%;
+                height: 100%;
+              "
+            >
+              <img
+                class="i1"
+                src="https://cdn.ferrari.com/cms/network/media/img/resize/61dd67f221685018b2730d46-australia_card?width=550&height=330"
+                alt="Image"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 25px;
+                  transition: transform 0.3s ease-in-out;
+                "
+              />
+            </div>
+            <div class="newsTitle">
+              <p style="font-family: monospace">31 March - 02 April</p>
+              <p>Australian Grand Prix Melbourne</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     <!-- The Merchandise thing comes here -->
     <div>
-      <div class="container" style="min-width: 55%">
+      <div
+        class="container"
+        style="
+          min-width: 55%;
+          margin-top: 10%;
+          border-radius: 20px;
+          box-shadow: 20px 2px 10px rgba(50, 0, 0, 0.1);
+        "
+      >
         <div>
           <div
             class="p-5"
-            style="border: none; border-radius: 20px; background-color: #870000"
+            style="
+              border: none;
+              border-radius: 20px;
+              background-color: rgb(135, 0, 0);
+            "
           >
             <div class="card-body d-md-flex justify-content-md-between">
               <div>
@@ -161,7 +487,7 @@
                 <h5 class="card-title text-white">MERCHANDISE</h5>
                 <p
                   class="card-text mt-4 text-white mb-4"
-                  style="max-width: 55%"
+                  style="max-width: 65%"
                 >
                   Purchase official Ferrari Formula One merchandise at exclusive
                   prices and avail discounts!
@@ -246,7 +572,7 @@
 
     <!-- The Contact Us form comes here-->
     <div>
-      <p class="text-white text-center">Contact form</p>
+      <p class="text-white text-center" style="margin-top: 10%">Contact form</p>
     </div>
     <!-- The Footer comes here-->
     <div class="mainFooter">
