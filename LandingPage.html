@@ -105,6 +105,7 @@
         ];
         let index = 0;
         const carouselInner = document.querySelector(".carousel-inner");
+        const carouselContainer = document.querySelector(".relative");
 
         function updateCarousel() {
           carouselInner.innerHTML = `<img src="${images[index]}" alt="Image ${index}" class="carousel-img rounded-3xl img-fluid">`;
@@ -121,7 +122,15 @@
         }
 
         function startCarousel() {
-          setInterval(nextSlide, 8000);
+          setInterval(() => {
+            const containerRect = carouselContainer.getBoundingClientRect();
+            if (
+              containerRect.top >= 0 &&
+              containerRect.bottom <= window.innerHeight
+            ) {
+              nextSlide();
+            }
+          }, 8000);
         }
 
         document.addEventListener("DOMContentLoaded", () => {
