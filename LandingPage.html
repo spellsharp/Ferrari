@@ -17,10 +17,10 @@
       height: 100%;
       margin: 0;
     }
-
     .carousel-img {
       /* object-fit: cover;  */
       width: 100%;
+      height: 75vh;
     }
 
     .roundButton {
@@ -125,9 +125,9 @@
           setInterval(() => {
             const containerRect = carouselContainer.getBoundingClientRect();
             if (
-              containerRect.top >= 0 &&
-              containerRect.bottom <= window.innerHeight
-            ) {
+              containerRect.top >= 0
+            )
+             {
               nextSlide();
             }
           }, 8000);
