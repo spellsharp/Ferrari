@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checkout Form</title>
+    <!-- Add the Bootstrap CSS link -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      /* Custom dark mode */
+      body {
+        background-color: #222;
+        color: #fff;
+      }
+
+      .rounded-btn {
+        border-radius: 25px;
+      }
+
+      /* Remove border from input fields */
+      .form-control.no-border {
+        border: none;
+      }
+
+      /* Apply custom styles for focus state (optional) */
+      .form-control.no-border:focus {
+        box-shadow: none;
+      }
+
+      .dark-mode .form-control,
+      .dark-mode .form-control:focus {
+        background-color: #333;
+        color: #fff;
+      }
+
+      /* Custom styles for buttons */
+      .btn-left,
+      .btn-right {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+      }
+
+      .btn-left {
+        left: 0;
+      }
+
+      .btn-right {
+        right: 0;
+      }
+    </style>
+  </head>
+
+  <body class="dark-mode">
+    <nav class="navbar navbar-expand-md navbar-light">
+      <!-- Change bg-dark to bg-transparent later-->
+      <a
+        class="navbar-brand text-white mx-5 mt-4"
+        style="font-size: 72px; font-weight: 900"
+        href="/LandingPage.html"
+        >Ferrari</a
+      >
+    </nav>
+    <div class="ml-4 mt-5">
+      <div class="row m-0">
+        <div class="md-col-1 ml-4"></div>
+        <div class="col-md-6 card bg-dark">
+          <div class="mt-5">
+            <form>
+              <div class="form-row">
+                <div class="col-md-5 mb-3">
+                  <label for="first-name">First Name:</label>
+                  <input
+                    type="text"
+                    class="form-control no-border"
+                    id="first-name"
+                    name="first-name"
+                    required
+                  />
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5 mb-3">
+                  <label for="last-name">Last Name:</label>
+                  <input
+                    type="text"
+                    class="form-control no-border"
+                    id="last-name"
+                    name="last-name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-5 mb-3">
+                  <label for="email">Email Address:</label>
+                  <input
+                    type="email"
+                    class="form-control no-border"
+                    id="email"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-5 mb-3">
+                  <label for="phone">Phone Number:</label>
+                  <input
+                    type="tel"
+                    class="form-control no-border"
+                    id="phone"
+                    name="phone"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="shipping-address">Shipping Address:</label>
+                <textarea
+                  id="shipping-address"
+                  name="shipping-address"
+                  class="form-control col-md-11 no-border"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-group position-relative py-5">
+                <div class="row">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-3">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-block rounded-btn btn-left"
+                      onclick="confirmPurchase()"
+                    >
+                      Confirm Purchase
+                    </button>
+                  </div>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-3">
+                    <button
+                      type="submit"
+                      class="btn btn-secondary btn-block rounded-btn btn-right"
+                      onclick="cancelPurchase()"
+                    >
+                      Cancel Purchase
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-11">
+              <div class="card bg-dark text-white">
+                <div class="card-header">
+                  <h4>Payment Details</h4>
+                </div>
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="total-amount" class="col-sm-6 col-form-label"
+                      >Total Amount:</label
+                    >
+                    <div class="col-sm-6">
+                      <input
+                        type="number"
+                        id="total-amount"
+                        class="form-control bg-dark border-0"
+                        min="0"
+                        value="100"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="shipping-fee" class="col-sm-6 col-form-label"
+                      >Shipping Fee:</label
+                    >
+                    <div class="col-sm-6">
+                      <input
+                        type="number"
+                        id="shipping-fee"
+                        class="form-control bg-dark border-0"
+                        min="0"
+                        value="10"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="taxes" class="col-sm-6 col-form-label"
+                      >Taxes:</label
+                    >
+                    <div class="col-sm-6">
+                      <input
+                        type="number"
+                        id="taxes"
+                        class="form-control bg-dark border-0"
+                        min="0"
+                        value="5"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="total" class="col-sm-6 col-form-label"
+                      >Total:</label
+                    >
+                    <div class="col-sm-6">
+                      <input
+                        type="number"
+                        id="total"
+                        class="form-control bg-dark border-0"
+                        min="0"
+                        value="115"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add the Bootstrap JS script links -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      function cancelPurchase() {
+        window.location.href = "LandingPage.html";
+      }
+
+      function confirmPurchase() {
+        window.location.href = "success.html";
+      }
+    </script>
+  </body>
+</html>
