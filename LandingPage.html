@@ -21,7 +21,7 @@
       padding: 5px;
     }
     body {
-      background: linear-gradient(180deg, #000 10%, #a50000 100%);
+      background: linear-gradient(180deg, #000 10%, #a50000 50%);
       height: 100%;
       margin: 0;
     }
@@ -343,7 +343,7 @@
         </div>
 
         <div
-          class="news"
+          class="races"
           style="
             margin-top: 10px;
             display: flex;
@@ -574,11 +574,105 @@
     </div>
 
     <!-- The Contact Us form comes here-->
-    <div>
-      <p class="text-white text-center" style="margin-top: 10%">Contact form</p>
+    <div style="margin-top: 10%">
+      <!-- <p class="text-white text-center" style="margin-top: 10%">Contact form</p> -->
+      <div class="container mt-5" style="background-color: transparent">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <h2 class="mb-4 text-light">Talk With Our Team</h2>
+            <div class="border p-5 border border-1" style="border-radius: 20px">
+              <form class="text-white">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      placeholder="eg. John"
+                      style="color: grey"
+                    />
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input
+                      type="text"
+                      class="form-control .bg-light"
+                      id="lastName"
+                      placeholder="Doe"
+                    />
+                  </div>
+                </div>
+                <br />
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="email">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="name@company.com"
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="phone">Phone Number</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="phone"
+                      placeholder="+91 9876543210"
+                    />
+                </div>
+                <!-- <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="firstName">First Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      placeholder="eg. John"
+                      style="color: grey"
+                    />
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="lastName">Last Name</label>
+                    <input
+                      type="text"
+                      class="form-control .bg-light"
+                      id="lastName"
+                      placeholder="Doe"
+                    />
+                  </div> -->
+                </div>
+                <br />
+                <div class="form-group">
+                  <label for="message">What would you like to discuss?</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="4"
+                    placeholder="Tell us about any problems you faced in purchases or any information that you would like to tell us or know from us. We will reach out to you as soon as possible."
+                  ></textarea>
+                </div>
+                <div class="text-right">
+                  <button
+                    type="submit"
+                    class="btn text-white btn-rounded p-3"
+                    style="background-color: #870000; border-radius: 100px"
+                  >
+                    Contact Us
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- The Footer comes here-->
-    <div class="mainFooter">
+    <div class="mainFooter" style="margin-top: 10%">
       <footer class="footer">
         <div class="footer-main-container">
           <div class="footer-container">
