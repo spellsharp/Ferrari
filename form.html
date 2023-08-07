@@ -19,6 +19,9 @@
           rgba(0, 0, 0, 0) 100%
         );
         color: #fff;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
       }
 
       .rounded-btn {
@@ -93,24 +96,6 @@
     </style>
   </head>
   <body class="dark-mode">
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <title>Classic Payment Detail Page</title>
-        <!-- Add the Bootstrap CSS link -->
-        <link
-          rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        />
-        <style>
-          /* Custom dark mode */
-          body {
-            background-color: #222;
-            color: #fff;
-          }
-        </style>
-      </head>
-      <body>
         <div class="ml-5 mt-5">
           <div class="row m-0">
             <div class="col-md-6 form1 mb-auto">
@@ -185,6 +170,7 @@
                       <div class="col-md-3">
                         <button
                           type="button"
+                          style="outline: none; border: none"
                           class="purchasebtn p-2 btn-block rounded-btn btn-left"
                           onclick="confirmPurchase()"
                         >
@@ -197,6 +183,7 @@
                       <div class="col-md-3">
                         <button
                           type="submit"
+                          style="outline: none; border: none"
                           class="p-2 btn-secondary btn-block rounded-btn btn-right"
                           onclick="cancelPurchase()"
                         >
@@ -447,7 +434,7 @@
             sum += lastDigit;
             return sum % 10 === 0;
           }
-          async function confirmPurchase() {
+          function confirmPurchase() {
             const fname = document.getElementById("first-name").value;
             const lname = document.getElementById("last-name").value;
             const email = document.getElementById("email").value;
@@ -479,7 +466,5 @@
             }
           }
         </script>
-      </body>
-    </html>
   </body>
 </html>
