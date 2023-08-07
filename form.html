@@ -79,6 +79,17 @@
         font-weight: 600;
         line-height: normal;
       }
+      .total {
+        width: 73.334px;
+        height: 19.422px;
+        flex-shrink: 0;
+        color: #fff;
+
+        font-size: 12.42px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
     </style>
   </head>
   <body class="dark-mode">
@@ -266,8 +277,8 @@
                           <div class="form-group row">
                             <label
                               for="total"
-                              class="col-sm-6 col-form-label formfont"
-                              >Total:</label
+                              class="col-sm-6 col-form-label formfont total"
+                              >TOTAL:</label
                             >
                             <div class="col-sm-6">
                               <input
@@ -284,7 +295,7 @@
                       </div>
                     </div>
                     <div class="col-md-11 mt-4 px-0">
-                      <div style="background: #000;" class=" text-white">
+                      <div style="background: #000" class="text-white">
                         <div class="card-header">
                           <h4>Card Payment</h4>
                         </div>
@@ -356,9 +367,10 @@
                                 class="form-control no-border bg-transparent mb-0 pb-0"
                                 id="cardNumber"
                                 name="cardNumber"
+                                placeholder="Card Number"
                                 required
                               />
-                              <hr class="mt-1" style="background: #C4C4C4;">
+                              <hr class="mt-1" style="background: #c4c4c4" />
                             </div>
                             <div class="col-md-6 mb-3">
                               <label for="cardHolderName"
@@ -369,9 +381,10 @@
                                 class="form-control border-0 bg-transparent mb-0 pb-0"
                                 id="cardHolderName"
                                 name="cardHolderName"
+                                placeholder="Name on Card"
                                 required
                               />
-                              <hr class="mt-1" style="background: #C4C4C4;">
+                              <hr class="mt-1" style="background: #c4c4c4" />
                             </div>
                           </div>
                           <div class="form-row">
@@ -382,9 +395,10 @@
                                 class="form-control no-border bg-transparent mb-0 pb-0"
                                 id="expiryDate"
                                 name="expiryDate"
+                                placeholder="MM/YY"
                                 required
                               />
-                              <hr class="mt-1" style="background: #C4C4C4;">
+                              <hr class="mt-1" style="background: #c4c4c4" />
                             </div>
                             <div class="col-md-4 mb-3 ml-4">
                               <label for="cvv">CVV:</label>
@@ -393,9 +407,10 @@
                                 class="form-control no-border bg-transparent mb-0 pb-0"
                                 id="cvv"
                                 name="cvv"
+                                placeholder="XXX"
                                 required
                               />
-                              <hr class="mt-1" style="background: #C4C4C4;">
+                              <hr class="mt-1" style="background: #c4c4c4" />
                             </div>
                           </div>
                         </div>
@@ -412,14 +427,56 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
         <script>
           function cancelPurchase() {
             window.location.href = "slideshow.html";
           }
-
-          function confirmPurchase() {
-            window.location.href = "success.html";
+          function luhnCheck(num) {
+            let arr = (num + "")
+              .split("")
+              .reverse()
+              .map((x) => parseInt(x));
+            let lastDigit = arr.splice(0, 1)[0];
+            let sum = arr.reduce(
+              (acc, val, i) =>
+                i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9,
+              0
+            );
+            sum += lastDigit;
+            return sum % 10 === 0;
+          }
+          async function confirmPurchase() {
+            const fname = document.getElementById("first-name").value;
+            const lname = document.getElementById("last-name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const address = document.getElementById("shipping-address").value;
+            const cardno = document.getElementById("cardNumber").value;
+            const cardname = document.getElementById("cardHolderName").value;
+            const expirydate = document.getElementById("expiryDate").value;
+            const cvv = document.getElementById("cvv").value;
+            if (
+              fname.trim() === "" ||
+              lname.trim() === "" ||
+              email.trim() === "" ||
+              phone.trim() === "" ||
+              address.trim() === ""
+            ) {
+              alert("Please fill in all your personal details.");
+            } else if (
+              cardno.trim() === "" ||
+              cardname.trim() === "" ||
+              expirydate.trim() === "" ||
+              cvv.trim()
+            ) {
+              alert("Please fill in all your card details.");
+            } else {
+              luhnCheck(cardno)
+                ? (window.location.href = "success.html")
+                : alert("Invalid card number.");
+            }
           }
         </script>
       </body>
