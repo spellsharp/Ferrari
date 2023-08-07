@@ -318,8 +318,8 @@
               flex-direction: column;
               justify-content: space-between;
             "
-            id="hiddenNews"
-            class="d-flex hidden"
+            id="hiddenNews1"
+            class=" hidden"
           >
             <div
               class="t1"
@@ -357,8 +357,8 @@ Sainz Allegedly Signs a Pre-contract With ...
               flex-direction: column;
               justify-content: space-between;
             "
-            id="hiddenNews"
-            class="d-flex hidden"
+            id="hiddenNews2"
+            class=" hidden"
           >
             <div
               class="t1"
@@ -396,8 +396,8 @@ Sainz Allegedly Signs a Pre-contract With ...
               flex-direction: column;
               justify-content: space-between;
             "
-            id="hiddenNews"
-            class="d-flex hidden"
+            id="hiddenNews3"
+            class="hidden"
           >
             <div
               class="t1"
@@ -835,18 +835,23 @@ Sainz Allegedly Signs a Pre-contract With ...
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
   const showLink = document.getElementById("showLink");
-  const myDiv = document.getElementById("hiddenNews");
-
+  const myDiv1 = document.getElementById("hiddenNews1");
+  const myDiv2 = document.getElementById("hiddenNews2");
+  const myDiv3 = document.getElementById("hiddenNews3");
   // Add event listener for the link's click event
   showLink.addEventListener("click", (event) => {
     // Prevent the default behavior of the link
     event.preventDefault();
 
     // Toggle the visibility of the div by adding or removing the "hidden" class
-        if (myDiv.classList.contains("d-flex")) {
-      myDiv.classList.remove("d-flex");
+        if (myDiv1.classList.contains("d-flex")) {
+      myDiv1.classList.remove("d-flex");
+      myDiv2.classList.remove("d-flex");
+      myDiv3.classList.remove("d-flex");
     } else {
-      myDiv.classList.add("d-flex");
+      myDiv1.classList.add("d-flex");
+      myDiv2.classList.add("d-flex");
+      myDiv3.classList.add("d-flex");
     }
   });
 </script>
