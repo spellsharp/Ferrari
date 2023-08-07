@@ -24,6 +24,8 @@
         padding: 0;
       }
 
+      
+
       .rounded-btn {
         border-radius: 25px;
       }
@@ -98,69 +100,74 @@
   <body class="dark-mode">
     <div class="ml-5 mt-5">
       <div class="row m-0">
-        <div class="col-md-6 form1 mb-auto">
+        <div class="col-md-6 form1 mb-auto" style="border-radius: 20px;">
           <div class="col-md-12 ml-3">
-            <form class="">
+            <form class="p-4">
               <div class="pt-3 pb-4">
                 <h4>Your Details</h4>
               </div>
               <div class="form-row">
                 <div class="col-md-5 mb-3">
-                  <label for="first-name">First Name:</label>
+                  <label for="first-name">First Name</label>
                   <input
                     type="text"
                     class="form-control no-border"
                     id="first-name"
                     name="first-name"
-                    style="background: rgba(0, 0, 0, 0.5)"
+                    placeholder="eg. John"
+                    style="background: rgba(0, 0, 0, 0.5); padding: 30px"
                     required
                   />
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-5 mb-3">
-                  <label for="last-name">Last Name:</label>
+                  <label for="last-name">Last Name</label>
                   <input
                     type="text"
                     class="form-control no-border"
-                    style="background: rgba(0, 0, 0, 0.5)"
+                    style="background: rgba(0, 0, 0, 0.5); padding: 30px"
                     id="last-name"
                     name="last-name"
+                    placeholder="Doe"
                     required
                   />
                 </div>
               </div>
               <div class="form-row">
                 <div class="col-md-5 mb-3">
-                  <label for="email">Email Address:</label>
+                  <label for="email">Email Address</label>
                   <input
                     type="email"
                     class="form-control no-border"
-                    style="background: rgba(0, 0, 0, 0.5)"
+                    style="background: rgba(0, 0, 0, 0.5); padding: 30px"
                     id="email"
                     name="email"
+                    placeholder="name@company.com"
                     required
                   />
                 </div>
                 <div class="col-md-1"></div>
                 <div class="col-md-5 mb-3">
-                  <label for="phone">Phone Number:</label>
+                  <label for="phone">Phone Number</label>
                   <input
                     type="tel"
                     class="form-control no-border"
                     id="phone"
                     name="phone"
-                    style="background: rgba(0, 0, 0, 0.5)"
+                    style="background: rgba(0, 0, 0, 0.5); padding: 30px"
+                    placeholder="+91 9876543210"
                     required
                   />
                 </div>
               </div>
               <div class="form-group">
-                <label for="shipping-address">Shipping Address:</label>
+                <label for="shipping-address">Shipping Address</label>
                 <textarea
                   id="shipping-address"
                   name="shipping-address"
                   class="form-control col-md-11 no-border"
-                  style="height: 127px; background: rgba(0, 0, 0, 0.5)"
+                  style="height: 127px; background: rgba(0, 0, 0, 0.5); padding: 30px"
+                  placeholder="Enter shipping address here..."
                   required
                 ></textarea>
               </div>
@@ -198,7 +205,7 @@
         <div class="col-md-4">
           <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-11 form1">
+            <div class="col-md-11 form1 p-5"  style="border-radius: 20px;">
               <div class="text-white">
                 <div class="card-header">
                   <h4>Payment Details</h4>
@@ -281,8 +288,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-11 mt-4 px-0">
-                  <div style="background: #000" class="text-white">
+                <div class="col-md-11 mt-4 px-0 mx-auto">
+                  <div style="background: #000;" class="text-white">
                     <div class="card-header">
                       <h4>Card Payment</h4>
                     </div>
@@ -459,6 +466,35 @@
             ? (window.location.href = "success.html")
             : alert("Invalid card number.");
         }
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const totalAmount = urlParams.get("total");
+
+        if (totalAmount) {
+          
+          document.getElementById("total-amount").value = totalAmount;
+          document.getElementById("shipping-fee").value = totalAmount * 0.1;
+          document.getElementById("taxes").value = totalAmount * 0.07;
+          
+          updateTotal();
+        }
+      });
+
+      
+      function updateTotal() {
+        const totalAmount = parseFloat(
+          document.getElementById("total-amount").value
+        );
+        const shippingFee = parseFloat(
+          document.getElementById("shipping-fee").value
+        );
+        const taxes = parseFloat(document.getElementById("taxes").value);
+        const total = totalAmount + shippingFee + taxes;
+
+        document.getElementById("total").value = total.toFixed(2);
       }
     </script>
   </body>
