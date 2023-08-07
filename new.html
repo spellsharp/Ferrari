@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Individual News</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lumanosimo&family=Open+Sans:wght@300&display=swap");
+
+      /* For screens smaller than 576px (e.g., mobile devices) */
+      @media (max-width: 576px) {
+        .head {
+          display: flex;
+          /* justify-content: center; */
+          align-items: center;
+          padding: 10px; /* Add some padding to the container */
+          border: solid 5px white;
+          border-radius: 30px;
+        }
+
+        h4 {
+          /* margin-bottom: 10px; Add space below the heading */
+          display: inline-block;
+          margin: 0;
+        }
+        .hidden {
+          display: none;
+        }
+        .old {
+          /* margin-left: 0; Remove the margin for the link */
+          /* display: block; Display the link as a block element */
+          /* display:inline-block; */
+          padding-left: 10px;
+          padding-right: 10px;
+          display: flex;
+        }
+        .t1,
+        .t2,
+        .t3 {
+          border: solid 1px #ffff;
+          width: 1px;
+          height: 150px;
+          display: inline-block;
+          /* text-overflow: ellipsis; */
+          /* white-space: nowrap; */
+          overflow: hidden;
+          /* width:100px;  */
+        }
+        .a1 {
+          overflow: hidden;
+        }
+        .i1 {
+          border-radius: 100px;
+        }
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="block " style="background-color: #870000">
+      <div
+        class="head"
+        style="
+          border-radius: 5px;
+          color: #fff;
+          font-family: 'Open Sans', sans-serif;
+        "
+      >
+        <h4 style="padding: 10px; display: inline-block">Latest News</h4>
+        <a style="color: #fff; margin: 400px;" href="#" id="showLink">View Older Posts</a>
+
+      </div>
+      <div class="news" style="margin-top: 10px">
+        <div
+          class="t1"
+          style="
+            width: 28%;
+            margin: 20px;
+            display: inline-block;
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease-in-out;
+          "
+          onmouseover="this.style.backgroundColor='#650000';"
+          onmouseout="this.style.backgroundColor='transparent';"
+        >
+          <img
+            class="i1"
+            src="data:image/jpeg;base64,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"
+            alt="Image"
+            style="
+              width: 100%;
+              border-radius: 25px;
+              transition: transform 0.3s ease-in-out;
+            "
+            onmouseover="this.style.transform='scale(1.2)';"
+            onmouseout="this.style.transform='scale(1)';"
+          />
+          <div
+            style="
+              box-sizing: border-box;
+              margin-top: 30px;
+              font-size: 16px;
+              color: #ffff;
+              font-family: 'Open Sans', sans-serif;
+            "
+          >
+            <a
+              class="a1"
+              href="https://www.planetf1.com/news/why-ferrari-did-not-retire-carlos-sainz-belgian-gp/"
+              target="_blank"
+              style="color: #ffff"
+            >
+              Fred Vasseur has explained why Ferrari didn’t withdraw Carlos
+              Sainz from the Belgian Grand Prix, despite extensive damage.
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="t2"
+          style="
+            width: 28%;
+            margin: 20px;
+            display: inline-block;
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease-in-out;
+          "
+          onmouseover="this.style.backgroundColor='#650000';"
+          onmouseout="this.style.backgroundColor='transparent';"
+        >
+          <img
+            src="https://ferrari-cdn.thron.com/delivery/public/thumbnail/ferrari/1caa9dd4-8451-497e-8dd9-403b9f54a33d/bocxuw/std/0x0/F1-Banner_Sito_Charles_960x65?v=120&dpr=263"
+            alt="Image"
+            style="
+              width: 100%;
+              border-radius: 25px;
+              transition: transform 0.3s ease-in-out;
+            "
+            onmouseover="this.style.transform='scale(1.2)';"
+            onmouseout="this.style.transform='scale(1)';"
+          />
+          <div
+            style="
+              box-sizing: border-box;
+              margin-top: 30px;
+              font-size: 16px;
+              color: #ffff;
+              font-family: 'Open Sans', sans-serif;
+            "
+          >
+            <a
+              href="https://www.formula1.com/en/latest/article.its-been-a-positive-weekend-leclerc-pleased-with-podium-in-belgium-but-says.5yxtsslF8LmVtsUMRbAJwN.html"
+              target="_blank"
+              style="color: #ffff"
+            >
+              <br />‘It’s been a positive weekend’ – Leclerc pleased with podium
+              in Belgium but says Ferrari still have 'a lot of work to do'
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="t3"
+          style="
+            width: 28%;
+            margin: 20px;
+            display: inline-block;
+            padding: 10px;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+          "
+          onmouseover="this.style.backgroundColor='#650000';"
+          onmouseout="this.style.backgroundColor='transparent';"
+        >
+          <img
+            src="https://media.gq.com/photos/6172caccb36b36132bb9ee50/3:2/w_5472,h_3648,c_limit/GettyImages-1306711225.jpg"
+            alt="Image"
+            style="
+              width: 100%;
+              border-radius: 25px;
+              transition: transform 0.3s ease-in-out;
+            "
+            onmouseover="this.style.transform='scale(1.2)';"
+            onmouseout="this.style.transform='scale(1)';"
+          />
+          <div
+            style="
+              margin-top: 30px;
+              font-size: 16px;
+              color: #ffff;
+              font-family: 'Open Sans', sans-serif;
+            "
+          >
+            <a
+              href="https://www.planetf1.com/news/george-russell-pace-surprise-belgian-grand-prix/"
+              target="_blank"
+              style="color: #ffff"
+            >
+              <br />George Russell admitted the pace of Charles Leclerc in his
+              Ferrari caught him off-guard during the Belgian Grand Prix this
+              weekend.
+            </a>
+          </div>
+        </div>
+        <!-- </div> -->
+        <div id="myDiv" class="hidden">
+            <div 
+            class="t3"style="width: 28%; margin: 20px;display: inline-block;; padding: 10px; text-align: center;transition: background-color 0.3s ease-in-out;" onmouseover="this.style.backgroundColor='#650000';" onmouseout="this.style.backgroundColor='transparent';">
+                <img src="https://media.gq.com/photos/6172caccb36b36132bb9ee50/3:2/w_5472,h_3648,c_limit/GettyImages-1306711225.jpg" alt="Image" style="width: 100%; border-radius: 25px;  transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='scale(1.2)';" onmouseout="this.style.transform='scale(1)';">
+                <div style="margin-top: 30px; font-size: 16px; color: #ffff;font-family: 'Open Sans', sans-serif;">
+                    <a href="https://www.planetf1.com/news/george-russell-pace-surprise-belgian-grand-prix/" target="_blank" style="color: #ffff;"> <br>George Russell admitted the pace of Charles Leclerc in his Ferrari caught him off-guard during the Belgian Grand Prix this weekend.      </a>          </div>
+              </div>
+        </div>
+      </div>
+      <div class="news">
+        <!-- Your upcoming events content here -->
+      </div>
+      
+    </section>
+    <script>
+        // Get references to the link and div elements
+        const showLink = document.getElementById("showLink");
+        const myDiv = document.getElementById("myDiv");
+
+        // Add event listener for the link's click event
+        showLink.addEventListener("click", (event) => {
+            // Prevent the default behavior of the link
+            event.preventDefault();
+
+            // Toggle the visibility of the div
+            myDiv.classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>
