@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Ferrari Website - The website for all Ferrari </title>
+    <title>The Ferrari Website - The website for all Ferrari</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <link
-    href="https://fonts.googleapis.com/css?family=Poppins"
-    rel="stylesheet"
-  />
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="PurchaseMerchCard.css" />
     <link rel="stylesheet" href="Footer.css" />
   </head>
@@ -29,7 +29,13 @@
     }
     body {
       font-family: Poppins;
-      background: linear-gradient(rgb(0, 0, 0) 0%, rgba(0,0,0,1) 13%, rgba(110,0,0,1) 61%, rgb(255, 0, 0) 72%, rgb(0, 0, 0) 100%);
+      background: linear-gradient(
+        rgb(0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 13%,
+        rgba(110, 0, 0, 1) 61%,
+        rgb(255, 0, 0) 72%,
+        rgb(0, 0, 0) 100%
+      );
       height: 100%;
       margin: 0;
     }
@@ -193,8 +199,14 @@
 
         <div
           class="news"
-          style="margin-top: 10px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2%;           margin-left: 10%;
-            margin-right: 10%;"
+          style="
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2%;
+            margin-left: 10%;
+            margin-right: 10%;
+          "
         >
           <div
             onmouseover="this.style.backgroundColor='#650000';"
@@ -313,13 +325,9 @@
           <div
             onmouseover="this.style.backgroundColor='#650000';"
             onmouseout="this.style.backgroundColor='transparent';"
-            style="
-              
-              flex-direction: column;
-              justify-content: space-between;
-            "
+            style="flex-direction: column; justify-content: space-between"
             id="hiddenNews1"
-            class=" hidden"
+            class="hidden"
           >
             <div
               class="t1"
@@ -344,21 +352,17 @@
             </div>
             <div class="newsTitle">
               <p>
-                Troubled With Ferrari’s $198,500,000 Bias Towards Charles Leclerc, Carlos 
-Sainz Allegedly Signs a Pre-contract With ...
+                Troubled With Ferrari’s $198,500,000 Bias Towards Charles
+                Leclerc, Carlos Sainz Allegedly Signs a Pre-contract With ...
               </p>
             </div>
           </div>
-                    <div
+          <div
             onmouseover="this.style.backgroundColor='#650000';"
             onmouseout="this.style.backgroundColor='transparent';"
-            style="
-              
-              flex-direction: column;
-              justify-content: space-between;
-            "
+            style="flex-direction: column; justify-content: space-between"
             id="hiddenNews2"
-            class=" hidden"
+            class="hidden"
           >
             <div
               class="t1"
@@ -383,19 +387,15 @@ Sainz Allegedly Signs a Pre-contract With ...
             </div>
             <div class="newsTitle">
               <p>
-                Charles Leclerc comes third in the Belgian Grand Prix after a 5 place grid penalty for a gearbox change. 
-                Sainz finishes 19th. 
+                Charles Leclerc comes third in the Belgian Grand Prix after a 5
+                place grid penalty for a gearbox change. Sainz finishes 19th.
               </p>
             </div>
           </div>
-                    <div
+          <div
             onmouseover="this.style.backgroundColor='#650000';"
             onmouseout="this.style.backgroundColor='transparent';"
-            style="
-              
-              flex-direction: column;
-              justify-content: space-between;
-            "
+            style="flex-direction: column; justify-content: space-between"
             id="hiddenNews3"
             class="hidden"
           >
@@ -422,7 +422,9 @@ Sainz Allegedly Signs a Pre-contract With ...
             </div>
             <div class="newsTitle">
               <p>
-                Ferrari in turmoil as Carlos Sainz 'signs pre-contract' with another F1 team. Rumours go around about Pierre Gasly joining the team soon.
+                Ferrari in turmoil as Carlos Sainz 'signs pre-contract' with
+                another F1 team. Rumours go around about Pierre Gasly joining
+                the team soon.
               </p>
             </div>
           </div>
@@ -620,7 +622,7 @@ Sainz Allegedly Signs a Pre-contract With ...
               </div>
               <button
                 class="roundButton"
-                onclick="window.location.href='/merchandise'"
+                onclick="window.location.href='/MerchandisePage.html'"
                 title="View Merchandise"
                 style="
                   background-color: #870000;
@@ -759,7 +761,8 @@ Sainz Allegedly Signs a Pre-contract With ...
                 </div>
                 <div class="text-right">
                   <button
-                    type="submit"
+                    type="button"
+                    onclick="handleContact()"
                     class="btn text-white btn-rounded p-3"
                     style="background-color: #870000; border-radius: 100px"
                   >
@@ -781,17 +784,27 @@ Sainz Allegedly Signs a Pre-contract With ...
               <h1>Ferrari</h1>
             </div>
             <div class="sitemap">
-              <h3>Sitemap</h2>
+              <h3>Sitemap</h3>
               <ul>
-                <li><a href="#latestnews" style="font-size: 18px">Latest News</a></li>
-                <li><a href="#upcomingraces" style="font-size: 18px">Upcoming Races</a></li>
-                <li><a href="/MerchandisePage.html" style="font-size: 18px">Merchandise</a></li>
+                <li>
+                  <a href="#latestnews" style="font-size: 18px">Latest News</a>
+                </li>
+                <li>
+                  <a href="#upcomingraces" style="font-size: 18px"
+                    >Upcoming Races</a
+                  >
+                </li>
+                <li>
+                  <a href="/MerchandisePage.html" style="font-size: 18px"
+                    >Merchandise</a
+                  >
+                </li>
                 <li><a href="#contact" style="font-size: 18px">Contact</a></li>
               </ul>
             </div>
 
             <div class="social-media">
-              <h3>Follow Us</h2>
+              <h3>Follow Us</h3>
               <ul>
                 <li>
                   <a href="#" style="font-size: 16px">Facebook</a>
@@ -806,7 +819,7 @@ Sainz Allegedly Signs a Pre-contract With ...
             </div>
 
             <div class="head-office">
-              <h3>Head Office</h2>
+              <h3>Head Office</h3>
               <p style="font-size: 18px">
                 Vrindavan Hostel, Mata Amritanandamayi Ashram, Amritapuri,
                 Kollam, Kerala
@@ -833,28 +846,45 @@ Sainz Allegedly Signs a Pre-contract With ...
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-  const showLink = document.getElementById("showLink");
-  const myDiv1 = document.getElementById("hiddenNews1");
-  const myDiv2 = document.getElementById("hiddenNews2");
-  const myDiv3 = document.getElementById("hiddenNews3");
-  // Add event listener for the link's click event
-  showLink.addEventListener("click", (event) => {
-    // Prevent the default behavior of the link
-    event.preventDefault();
+    <script>
+      const showLink = document.getElementById("showLink");
+      const myDiv1 = document.getElementById("hiddenNews1");
+      const myDiv2 = document.getElementById("hiddenNews2");
+      const myDiv3 = document.getElementById("hiddenNews3");
+      // Add event listener for the link's click event
+      showLink.addEventListener("click", (event) => {
+        // Prevent the default behavior of the link
+        event.preventDefault();
 
-    // Toggle the visibility of the div by adding or removing the "hidden" class
+        // Toggle the visibility of the div by adding or removing the "hidden" class
         if (myDiv1.classList.contains("d-flex")) {
-      myDiv1.classList.remove("d-flex");
-      myDiv2.classList.remove("d-flex");
-      myDiv3.classList.remove("d-flex");
-    } else {
-      myDiv1.classList.add("d-flex");
-      myDiv2.classList.add("d-flex");
-      myDiv3.classList.add("d-flex");
-    }
-  });
-</script>
+          myDiv1.classList.remove("d-flex");
+          myDiv2.classList.remove("d-flex");
+          myDiv3.classList.remove("d-flex");
+        } else {
+          myDiv1.classList.add("d-flex");
+          myDiv2.classList.add("d-flex");
+          myDiv3.classList.add("d-flex");
+        }
+      });
 
+      function handleContact() {
+        first_name = document.getElementById("firstName").value;
+        last_name = document.getElementById("lastName").value;
+        email = document.getElementById("email").value;
+        phone = document.getElementById("phone").value;
+        message = document.getElementById("message").value;
+        console.log(first_name, last_name, email, phone);
+        console.log(message);
+
+        const mailtoLink = `mailto:shrisharanyan.clg@gmail.com?subject=${"Ferrari Website Feedback"}}&body=%20${encodeURIComponent(
+          message
+        )}%0D%0A%0D%0A%0D%0A%20${encodeURIComponent(
+          first_name
+        )}%0D%0A%20(${encodeURIComponent(phone)})%0D%0A`;
+
+        window.open(mailtoLink, "_blank");
+      }
+    </script>
   </body>
 </html>

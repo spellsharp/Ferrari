@@ -384,7 +384,7 @@
       </button>
     </div>
     <script>
-      let cartItems = {}; 
+      let cartItems = {};
 
       function addToCart(productId) {
         if (cartItems[productId]) {
@@ -403,9 +403,7 @@
               >
                 -
               </button>
-              <span id="count${productId}" style="padding: 0 10px">${
-          cartItems[productId]
-        }</span>
+              <span id="count${productId}" style="padding: 0 10px">${cartItems[productId]}</span>
               <button
                 style="font-family: Poppins; border-radius: 360px"
                 onclick="incrementCartItem(${productId})"
@@ -416,8 +414,14 @@
           `;
       }
       function incrementCartItem(productId) {
-        cartItems[productId]++;
-        updateCartItem(productId);
+        if (cartItems[productId] <  50) {
+          cartItems[productId]++;
+          updateCartItem(productId);
+        }
+        else {
+          alert("Order of each item cannot exceed 50");
+        }
+        
       }
 
       function decrementCartItem(productId) {
@@ -426,8 +430,8 @@
           updateCartItem(productId);
         } else {
           delete cartItems[productId];
-            const buttonElement = document.getElementById(`button${productId}`);
-            buttonElement.innerHTML = `
+          const buttonElement = document.getElementById(`button${productId}`);
+          buttonElement.innerHTML = `
               <button
                 style="font-family: Poppins; border-radius: 360px"
                 onclick="addToCart(${productId})"
