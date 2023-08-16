@@ -460,6 +460,10 @@
         for (const productId in cartItems) {
           totalPrice += calculatePrice(productId);
         }
+        if (totalPrice === 0) {
+          alert("Please add items to cart before proceeding to purchase");
+          return;
+        }
         console.log(totalPrice);
         window.location.href = `/PurchasePage.html?total=${totalPrice.toFixed(
           2
