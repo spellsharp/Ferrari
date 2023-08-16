@@ -2,7 +2,12 @@
   /* //--background: #121621;
     //--primary-color: rgba(39, 94, 254, 1); */
   --background: black;
-  --primary-color: black;
+  --primary-color: linear-gradient(
+    180deg,
+    #000 0%,
+    rgba(137, 0, 0, 1) 72.4%,
+    #000 100%
+  );
 }
 
 body {
