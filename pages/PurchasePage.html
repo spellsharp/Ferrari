@@ -25,8 +25,6 @@
         padding: 0;
       }
 
-      
-
       .rounded-btn {
         border-radius: 25px;
       }
@@ -99,9 +97,9 @@
     </style>
   </head>
   <body class="dark-mode">
-    <div class="p-5 ">
+    <div class="p-5">
       <div class="row m-0 justify-content-between">
-        <div class="col-md-6 form1 mb-auto" style="border-radius: 20px;">
+        <div class="col-md-6 form1 mb-auto" style="border-radius: 20px">
           <div class="col-md-12 ml-3">
             <form class="p-4">
               <div class="pt-3 pb-4">
@@ -167,7 +165,11 @@
                   id="shipping-address"
                   name="shipping-address"
                   class="form-control col-md-11 no-border"
-                  style="height: 127px; background: rgba(0, 0, 0, 0.5); padding: 30px"
+                  style="
+                    height: 127px;
+                    background: rgba(0, 0, 0, 0.5);
+                    padding: 30px;
+                  "
                   placeholder="Enter shipping address here..."
                   required
                 ></textarea>
@@ -206,7 +208,7 @@
         <div class="col-md-4">
           <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-11 form1 p-5"  style="border-radius: 20px;">
+            <div class="col-md-11 form1 p-5" style="border-radius: 20px">
               <div class="text-white">
                 <div class="card-header">
                   <h4>Payment Details</h4>
@@ -290,7 +292,7 @@
                   </div>
                 </div>
                 <div class="col-md-11 mt-4 px-0 mx-auto">
-                  <div style="background: #000;" class="text-white">
+                  <div style="background: #000" class="text-white">
                     <div class="card-header">
                       <h4>Card Payment</h4>
                     </div>
@@ -447,6 +449,17 @@
         const cardname = document.getElementById("cardHolderName").value;
         const expirydate = document.getElementById("expiryDate").value;
         const cvv = document.getElementById("cvv").value;
+        
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+        var phonePattern = /^\+?\d{10,}$/;
+        if (!phonePattern.test(phone)) {
+          alert("Please enter a valid phone number.");
+          return;
+        }
         if (
           fname.trim() === "" ||
           lname.trim() === "" ||
@@ -475,16 +488,14 @@
         const totalAmount = urlParams.get("total");
 
         if (totalAmount) {
-          
           document.getElementById("total-amount").value = totalAmount;
           document.getElementById("shipping-fee").value = 10;
           document.getElementById("taxes").value = totalAmount * 0.07;
-          
+
           updateTotal();
         }
       });
 
-      
       function updateTotal() {
         const totalAmount = parseFloat(
           document.getElementById("total-amount").value
